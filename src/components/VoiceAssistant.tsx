@@ -31,7 +31,7 @@ const VoiceAssistant = () => {
 
   // FAQ responses for Gromo business
   const responses: Record<string, string> = {
-    greeting: "Vanakkam! I'm Maya, your Gromo business assistant. I help local vendors grow their business and connect customers with nearby services. Whether you want to register your shop, find local vendors, or learn about earning opportunities - I'm here to guide you through everything Gromo offers. How can I assist you today?",
+    greeting: "Vanakkam! I'm Maya, your Gromo business assistant. I help local vendors grow their business and connect customers with nearby services. If you need immediate support, you can call us at 8-4-3-8-7-8-5-7-7-9 or send an email. You can also visit our website at gromo-web-forge.vercel.app to explore different types of businesses on our platform. Whether you want to register your shop, find local vendors, or learn about earning opportunities - I'm here to guide you. What would you like to know?",
     
     // Vendor registration
     "register|vendor|join|signup": "Super! To join as a vendor, I'll need your business name, location, and mobile number. You can register through our app or website. What type of business do you want to promote?",
@@ -130,12 +130,37 @@ const VoiceAssistant = () => {
       synthRef.current.cancel();
       
       const utterance = new SpeechSynthesisUtterance(text);
+      
+      // Enhanced voice settings for more beautiful voice
       utterance.lang = 'en-IN';
-      utterance.rate = 0.9;
-      utterance.pitch = 1;
+      utterance.rate = 0.85; // Slightly slower for clarity
+      utterance.pitch = 1.2; // Higher pitch for more pleasant sound
+      utterance.volume = 0.9;
+      
+      // Try to use a female voice if available
+      const voices = synthRef.current.getVoices();
+      const femaleVoice = voices.find(voice => 
+        voice.lang.includes('en') && 
+        (voice.name.toLowerCase().includes('female') || 
+         voice.name.toLowerCase().includes('woman') ||
+         voice.name.toLowerCase().includes('samantha') ||
+         voice.name.toLowerCase().includes('microsoft zira'))
+      );
+      
+      if (femaleVoice) {
+        utterance.voice = femaleVoice;
+      }
       
       utterance.onstart = () => setIsSpeaking(true);
-      utterance.onend = () => setIsSpeaking(false);
+      utterance.onend = () => {
+        setIsSpeaking(false);
+        // Auto-start listening after response for continuous conversation
+        setTimeout(() => {
+          if (speechSupported && !isListening) {
+            startListening();
+          }
+        }, 1000);
+      };
       
       synthRef.current.speak(utterance);
     }
