@@ -31,7 +31,7 @@ const VoiceAssistant = () => {
 
   // FAQ responses for Gromo business
   const responses: Record<string, string> = {
-    greeting: "Vanakkam! I am Gromo. How can I help you?",
+    greeting: "Vanakkam! I'm Maya, your Gromo business assistant. I help local vendors grow their business and connect customers with nearby services. Whether you want to register your shop, find local vendors, or learn about earning opportunities - I'm here to guide you through everything Gromo offers. How can I assist you today?",
     
     // Vendor registration
     "register|vendor|join|signup": "Super! To join as a vendor, I'll need your business name, location, and mobile number. You can register through our app or website. What type of business do you want to promote?",
