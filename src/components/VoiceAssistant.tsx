@@ -36,8 +36,15 @@ const VoiceAssistant = () => {
     // Vendor registration
     "register|vendor|join|signup": "Super! To join as a vendor, I'll need your business name, location, and mobile number. You can register through our app or website. What type of business do you want to promote?",
     
-    // Location services
-    "nearest|tea|stall|shop|location": "I can help you find the nearest tea stall! Please share your location, and I'll show you all nearby vendors on our platform.",
+    // Location services - Enhanced with district/place handling
+    "nearest|tea|stall|shop|location|where|find": "I can help you find nearby vendors! Which district or area are you in? Please tell me your location like - Salem, Namakkal, Rasipuram, or any other place.",
+    
+    // Specific location responses
+    "salem": "Great! In Salem district, we have many vendors - 15+ tea stalls near Junction, 8 hotels in Five Roads area, and several construction workers in Ammapet. What type of service do you need?",
+    "namakkal": "Perfect! Namakkal has excellent vendors - 10+ tea stalls in Bus Stand area, 5 hotels near Collectorate, and many local services in Mohanur road. What are you looking for?",
+    "rasipuram": "Nice! Rasipuram area has growing vendors - 8 tea stalls near Market, 4 hotels in Main Road, and construction services in Velur road. Which service interests you?",
+    "erode": "Excellent! Erode has many active vendors - 20+ tea stalls in Perundurai road, 12 hotels in Bus Stand area, and various services in Bhavani. What do you need?",
+    "tiruchengode": "Good choice! Tiruchengode has local vendors - 6 tea stalls near Temple area, 3 hotels in Main road, and local services. What service are you searching for?",
     
     // Earnings
     "earn|money|income|profit": "Great question! With Gromo, vendors typically earn 20-40% more customers. Tea stalls earn ₹500-2000 extra daily, while hotels can get 50+ new customers per month!",
