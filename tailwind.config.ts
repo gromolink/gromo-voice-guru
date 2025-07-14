@@ -52,6 +52,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				gromo: {
+					DEFAULT: 'hsl(var(--gromo-primary))',
+					light: 'hsl(var(--gromo-primary-light))',
+					dark: 'hsl(var(--gromo-primary-dark))',
+					'voice-active': 'hsl(var(--gromo-voice-active))',
+					'voice-listening': 'hsl(var(--gromo-voice-listening))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -84,11 +91,40 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'voice-pulse': {
+					'0%, 100%': {
+						transform: 'scale(1)',
+						opacity: '1'
+					},
+					'50%': {
+						transform: 'scale(1.1)',
+						opacity: '0.8'
+					}
+				},
+				'voice-wave': {
+					'0%, 100%': {
+						transform: 'scaleY(1)'
+					},
+					'50%': {
+						transform: 'scaleY(1.5)'
+					}
+				},
+				'float': {
+					'0%, 100%': {
+						transform: 'translateY(0px)'
+					},
+					'50%': {
+						transform: 'translateY(-10px)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'voice-pulse': 'voice-pulse 2s ease-in-out infinite',
+				'voice-wave': 'voice-wave 1s ease-in-out infinite',
+				'float': 'float 3s ease-in-out infinite'
 			}
 		}
 	},
