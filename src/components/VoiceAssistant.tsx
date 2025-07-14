@@ -46,14 +46,41 @@ const VoiceAssistant = () => {
     "erode": "Excellent! Erode has many active vendors - 20+ tea stalls in Perundurai road, 12 hotels in Bus Stand area, and various services in Bhavani. What do you need?",
     "tiruchengode": "Good choice! Tiruchengode has local vendors - 6 tea stalls near Temple area, 3 hotels in Main road, and local services. What service are you searching for?",
     
-    // Earnings
-    "earn|money|income|profit": "Great question! With Gromo, vendors typically earn 20-40% more customers. Tea stalls earn ₹500-2000 extra daily, while hotels can get 50+ new customers per month!",
+    // Earnings and revenue
+    "earn|money|income|profit|revenue": "Great question! With Gromo, vendors typically earn 20-40% more customers. Tea stalls earn ₹500-2000 extra daily, while hotels can get 50+ new customers per month!",
     
-    // Business types
-    "business|promote|advertise": "You can promote many businesses on Gromo - tea stalls, hotels, restaurants, construction services, repair shops, grocery stores, and more! What's your business type?",
+    // Business types and services
+    "business|promote|advertise|service|what": "You can promote many businesses on Gromo - tea stalls, hotels, restaurants, construction services, repair shops, grocery stores, medical shops, beauty parlors, and more! What's your business type?",
+    
+    // How Gromo works
+    "how|works|process|platform": "Gromo connects local vendors with customers! Vendors register their business, customers find them nearby, and both benefit. Vendors get more customers, customers get convenient local services!",
+    
+    // Pricing and costs
+    "price|cost|fee|charge|payment": "Gromo has very affordable pricing! Registration is free for vendors. We only charge a small commission when you get customers. No upfront costs - you earn first, then pay!",
+    
+    // App and website
+    "app|download|website|online": "You can use Gromo through our mobile app or website at gromo-web-forge.vercel.app. Both are easy to use - vendors can register and customers can find services easily!",
+    
+    // Customer benefits
+    "customer|user|benefit|why": "Customers love Gromo because they can quickly find nearby vendors, read reviews, compare services, and get quality local services. It saves time and ensures reliable vendors!",
+    
+    // Success stories
+    "success|story|example|testimonial": "Many vendors have grown with Gromo! Ravi's tea stall in Salem doubled customers in 3 months. Priya's hotel in Namakkal gets 100+ orders daily now. Your success story could be next!",
+    
+    // Competition and advantages
+    "better|advantage|different|why choose": "Gromo focuses on local Tamil vendors and customers. We understand local needs, provide Tamil support, affordable pricing, and personal assistance. We're built for our community!",
+    
+    // Technical support
+    "problem|issue|technical|not working": "No worries! For any technical issues, call our support at 8-4-3-8-7-8-5-7-7-9. Our team will help you immediately. You can also email us or visit our website for instant chat support!",
     
     // General help
-    "help|support|contact": "I'm here to help! You can ask me about vendor registration, finding nearby services, earnings potential, or how Gromo works. What would you like to know?",
+    "help|support|contact|assistance": "I'm here to help! You can ask me about vendor registration, finding nearby services, earnings potential, how Gromo works, pricing, or any other questions. What would you like to know?",
+    
+    // Greetings and casual
+    "hi|hello|vanakkam|good morning|good evening": "Vanakkam! Welcome to Gromo! I'm Maya, your friendly business assistant. How can I help you grow your business or find local services today?",
+    
+    // Thank you responses
+    "thank|thanks|nandri": "You're most welcome! I'm always here to help you with Gromo. If you have any more questions about growing your business or finding vendors, just ask me anytime!",
     
     // Default fallback
     default: "I didn't get that clearly. Please say it again, or ask me about vendor registration, nearby services, or how to earn with Gromo!"
