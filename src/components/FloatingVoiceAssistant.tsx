@@ -214,7 +214,11 @@ export const FloatingVoiceAssistant: React.FC<VoiceAssistantProps> = ({
           className={`fixed ${positionClasses} w-12 h-12 rounded-full shadow-lg hover:scale-110 transition-all duration-300 flex items-center justify-center`}
           style={{ backgroundColor: accentColor }}
         >
-          <Mic className="w-6 h-6 text-white" />
+          <img 
+            src="/lovable-uploads/2ea3c8af-7a35-463d-a05a-fbbc62628152.png" 
+            alt="Gromo Assistant" 
+            className="w-7 h-7"
+          />
         </button>
       )}
 
