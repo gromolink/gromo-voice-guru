@@ -225,13 +225,13 @@ export const FloatingVoiceAssistant: React.FC<VoiceAssistantProps> = ({
       {/* Overlay */}
       {isOpen && (
         <div 
-          className="fixed inset-0 z-50 flex items-end justify-end p-5"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
           onClick={handleOutsideClick}
         >
           <div 
             className="bg-white rounded-xl shadow-xl border border-gray-200 animate-scale-in"
             style={{ 
-              width: '300px', 
+              width: '200px', 
               height: '500px',
               boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
             }}
@@ -239,20 +239,20 @@ export const FloatingVoiceAssistant: React.FC<VoiceAssistantProps> = ({
           >
             {/* Header */}
             <div 
-              className="flex items-center justify-between p-4 border-b border-gray-200 rounded-t-xl text-white"
+              className="flex items-center justify-between p-3 border-b border-gray-200 rounded-t-xl text-white"
               style={{ backgroundColor: accentColor }}
             >
-              <h3 className="font-semibold text-sm">Gromo Voice Assistant</h3>
+              <h3 className="font-semibold text-xs">Gromo Assistant</h3>
               <button
                 onClick={() => setIsOpen(false)}
                 className="p-1 hover:bg-white/20 rounded-full transition-colors"
               >
-                <X className="w-4 h-4" />
+                <X className="w-3 h-3" />
               </button>
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-3 space-y-3" style={{ height: '340px' }}>
+            <div className="flex-1 overflow-y-auto p-2 space-y-2" style={{ height: '320px' }}>
               {messages.map((message) => (
                 <div
                   key={message.id}
