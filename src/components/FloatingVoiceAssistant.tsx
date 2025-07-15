@@ -25,14 +25,8 @@ export const FloatingVoiceAssistant: React.FC<VoiceAssistantProps> = ({
   const [isListening, setIsListening] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: '1',
-      text: "Vanakkam! I'm Maya from Gromo. How can I help you grow your business today?",
-      sender: 'assistant',
-      timestamp: new Date(),
-    },
-  ]);
+  const [showGreeting, setShowGreeting] = useState(false);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [inputText, setInputText] = useState('');
   const recognitionRef = useRef<SpeechRecognition | null>(null);
   const synthRef = useRef<SpeechSynthesis | null>(null);
@@ -265,7 +259,15 @@ export const FloatingVoiceAssistant: React.FC<VoiceAssistantProps> = ({
 
               {/* Voice Button */}
               <button
-                onClick={isListening ? stopListening : startListening}
+                onClick={() => {
+                  if (!showGreeting) {
+                    setShowGreeting(true);
+                    const greetingMessage = "Vanakkam! I'm Maya from Gromo. How can I help you grow your business today?";
+                    speak(greetingMessage);
+                  } else {
+                    isListening ? stopListening() : startListening();
+                  }
+                }}
                 className={`w-20 h-20 rounded-full transition-all duration-200 flex items-center justify-center ${
                   isListening 
                     ? 'bg-red-500 hover:bg-red-600 animate-pulse' 
