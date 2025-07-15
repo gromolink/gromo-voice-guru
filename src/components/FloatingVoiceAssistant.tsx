@@ -231,7 +231,7 @@ export const FloatingVoiceAssistant: React.FC<VoiceAssistantProps> = ({
           <div 
             className="bg-white rounded-xl shadow-xl border border-gray-200 animate-scale-in"
             style={{ 
-              width: '200px', 
+              width: '300px', 
               height: '500px',
               boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
             }}
@@ -239,106 +239,58 @@ export const FloatingVoiceAssistant: React.FC<VoiceAssistantProps> = ({
           >
             {/* Header */}
             <div 
-              className="flex items-center justify-between p-3 border-b border-gray-200 rounded-t-xl text-white"
+              className="flex items-center justify-between p-4 border-b border-gray-200 rounded-t-xl text-white"
               style={{ backgroundColor: accentColor }}
             >
-              <h3 className="font-semibold text-xs">Gromo Assistant</h3>
+              <h3 className="font-semibold text-sm">Gromo Voice Assistant</h3>
               <button
                 onClick={() => setIsOpen(false)}
                 className="p-1 hover:bg-white/20 rounded-full transition-colors"
               >
-                <X className="w-3 h-3" />
+                <X className="w-4 h-4" />
               </button>
             </div>
 
-            {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-2 space-y-2" style={{ height: '320px' }}>
-              {messages.map((message) => (
-                <div
-                  key={message.id}
-                  className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
-                >
-                  <div
-                    className={`max-w-[80%] p-2 rounded-lg text-xs ${
-                      message.sender === 'user'
-                        ? 'bg-blue-500 text-white'
-                        : 'bg-gray-100 text-gray-800'
-                    }`}
-                  >
-                    {message.text}
-                  </div>
-                </div>
-              ))}
-              
-              {isProcessing && (
-                <div className="flex justify-start">
-                  <div className="bg-gray-100 p-2 rounded-lg text-xs">
-                    <div className="flex space-x-1">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                    </div>
-                  </div>
-                </div>
-              )}
-              
-              <div ref={messagesEndRef} />
-            </div>
-
-            {/* Quick Actions */}
-            <div className="p-2 border-t border-gray-100">
-              <div className="grid grid-cols-2 gap-1 mb-2">
-                {quickActions.map((action, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleQuickAction(action)}
-                    className="text-xs p-1 bg-gray-50 hover:bg-gray-100 rounded border text-gray-700 transition-colors"
-                  >
-                    {action.length > 25 ? action.substring(0, 22) + '...' : action}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Input Area */}
-            <div className="p-3 border-t border-gray-200">
-              <div className="flex space-x-2">
-                <Input
-                  value={inputText}
-                  onChange={(e) => setInputText(e.target.value)}
-                  placeholder="Type your message..."
-                  className="flex-1 text-xs"
-                  onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+            {/* Content */}
+            <div className="flex-1 flex flex-col items-center justify-center p-8">
+              <div className="text-center mb-8">
+                <img 
+                  src="/lovable-uploads/2ea3c8af-7a35-463d-a05a-fbbc62628152.png" 
+                  alt="Gromo Assistant" 
+                  className="w-16 h-16 mx-auto mb-4"
                 />
-                <Button
-                  onClick={handleSendMessage}
-                  size="sm"
-                  className="px-2"
-                  style={{ backgroundColor: accentColor }}
-                >
-                  <Send className="w-3 h-3" />
-                </Button>
+                <h4 className="text-lg font-semibold text-gray-800 mb-2">Gromo Voice Assistant</h4>
+                <p className="text-sm text-gray-600">Click the microphone to start talking</p>
               </div>
-              
-              <div className="flex justify-center mt-2">
-                <button
-                  onClick={isListening ? stopListening : startListening}
-                  className={`p-2 rounded-full transition-all duration-200 ${
-                    isListening 
-                      ? 'bg-red-500 hover:bg-red-600 animate-pulse' 
-                      : 'hover:bg-gray-100'
-                  }`}
-                  style={{ 
-                    backgroundColor: isListening ? '#EF4444' : accentColor,
-                    color: 'white'
-                  }}
-                >
-                  {isListening ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
-                </button>
-                
+
+              {/* Voice Button */}
+              <button
+                onClick={isListening ? stopListening : startListening}
+                className={`w-20 h-20 rounded-full transition-all duration-200 flex items-center justify-center ${
+                  isListening 
+                    ? 'bg-red-500 hover:bg-red-600 animate-pulse' 
+                    : 'hover:bg-gray-100'
+                }`}
+                style={{ 
+                  backgroundColor: isListening ? '#EF4444' : accentColor,
+                  color: 'white'
+                }}
+              >
+                {isListening ? <MicOff className="w-8 h-8" /> : <Mic className="w-8 h-8" />}
+              </button>
+
+              {/* Status */}
+              <div className="mt-4 text-center">
+                {isListening && (
+                  <p className="text-sm text-red-600 animate-pulse">Listening...</p>
+                )}
+                {isProcessing && (
+                  <p className="text-sm text-blue-600">Processing...</p>
+                )}
                 {isSpeaking && (
-                  <div className="flex items-center ml-2">
-                    <Volume2 className="w-4 h-4 text-green-500 animate-pulse" />
+                  <div className="flex items-center justify-center">
+                    <Volume2 className="w-4 h-4 text-green-500 animate-pulse mr-2" />
+                    <p className="text-sm text-green-600">Speaking...</p>
                   </div>
                 )}
               </div>
